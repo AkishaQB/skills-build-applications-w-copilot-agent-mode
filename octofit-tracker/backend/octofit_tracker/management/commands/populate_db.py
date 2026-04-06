@@ -10,7 +10,7 @@ class Command(BaseCommand):
         Leaderboard.objects.all().delete()
         Workout.objects.all().delete()
         User.objects.all().delete()
-        Team.objects.all().delete()
+        Team.objects.filter(pk__isnull=False).delete()
 
         # Create Teams
         marvel = Team.objects.create(name='Marvel')
